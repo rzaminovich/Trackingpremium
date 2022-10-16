@@ -1,0 +1,32 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+    <div class="wrapper">
+        <div>
+            <fieldset>
+                <legend>Seleccione una empresa</legend>
+                {% for lista in listado %}
+                    <div>
+                        <input type="radio" id="{{lista.name}}" name="drone" value="{{lista.name}}">
+                        <label for="{{lista.name}}">{{lista.name}}</label>
+                    </div>
+                {%endfor%}
+            </fieldset>        
+        </div>
+
+        <div id="blockName" style="display: none;margin-top:20px">
+            <h4 style="margin-bottom:5px">Su empresa es</h4>
+            <p style="margin-top:0px" id="companiSelect"></p>
+        </div>
+
+        <div style="margin-top:20px">
+            <button id="btnNext">Continuar</button>
+        </div>
+        
+        {% block javascripts %}
+            <script src="{{ asset('js/jquery-3.6.1.min.js') }}" type="text/javascript"></script>
+        
+            <script src="{{ asset('js/tracking.js') }}" type="text/javascript"></script>
+        {% endblock %}
+
+    </div>
+{% endblock %}
